@@ -21,6 +21,11 @@ for (int i = 0; i < nome.Length; i++)
             case 'i':
             case 'o':
             case 'u':
+            case 'á':
+            case 'é':
+            case 'í':
+            case 'ó':
+            case 'ú':
                 codigo += nome[i];
                 break;
             default:
