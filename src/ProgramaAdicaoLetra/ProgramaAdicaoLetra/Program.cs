@@ -1,41 +1,32 @@
-﻿
+﻿string original, alterada;
+original = Console.ReadLine();
 
-Console.Write("Digite uma palavra: ");
-string palavra = Console.ReadLine();
-Console.Write("Digite um caractere");
-char letra = char.Parse(Console.ReadLine());
-
-
-string nome = palavra.ToLower();
-string codigo = " ";
-
-for (int i = 0; i < nome.Length; i++)
+alterada = InsereCaracter(original);
+Console.WriteLine(alterada);
+string InsereCaracter(string original)
 {
-    if (char.IsLetter(nome[i]))
+    char[] aux = new char[original.Length*2];
+    string alterada = " ";
+    for (int i = 0, j = 0; i < original.Length; i++)
     {
 
-        switch (nome[i])
+        if ((original[i] != 'a') && (original[i] != 'e') && (original[i] != 'o') && (original[i] != 'u'))
         {
-            case 'a':
-            case 'e':
-            case 'i':
-            case 'o':
-            case 'u':
-            case 'á':
-            case 'é':
-            case 'í':
-            case 'ó':
-            case 'ú':
-                codigo += nome[i];
-                break;
-            default:
-                codigo += letra + nome[i];
-
-                break;
+            aux[j + 1] = original[i];
+            aux[j] = '.';
+            j = j+2;
         }
-
+        else
+        {
+            aux[j] = original[i];
+            j++;
+        }
     }
 
+    for (int i = 0; i < aux.Length; i++)
+    {
+        alterada += aux[i];
+    }
+    return alterada;
 }
-Console.WriteLine(codigo);
-
+Console.ReadLine();
